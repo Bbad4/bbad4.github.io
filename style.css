@@ -5,20 +5,20 @@ html {
 }
 
 :root {
-    --background-color: rgb(227,227,227);
-    --color: rgb(77,77,77);
-    --shadow-color-1: rgb(220,220,220);
-    --shadow-color-2: rgb(234,234,234);
+    --background-color: #e3e3e3;
+    --color: #4d4d4d;
+    --shadow-color-1: #dcdcdc;
+    --shadow-color-2: #eaeaea;
     --button-background-color: #b5cec9;
     --button-color: #075a4b;
 }
   
 @media (prefers-color-scheme: dark) {
     :root {
-        --background-color: rgb(32,32,32);
-        --color: rgb(182,182,182);
-        --shadow-color-1: rgb(27,27,27);
-        --shadow-color-2: rgb(37,37,37);
+        --background-color: #202020;
+        --color: #b6b6b6;
+        --shadow-color-1: #1b1b1b;
+        --shadow-color-2: #252525;
         --button-background-color: #075a4b;
         --button-color: #b5cec9;
     }  

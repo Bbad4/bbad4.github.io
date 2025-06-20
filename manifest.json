@@ -14,7 +14,7 @@
     ],
     "start_url": "/Minimal-Resume/",
     "display": "standalone",
-    "background_color": "rgb(32,32,32)",
+    "background_color": "#202020",
     "prefer_related_applications": false,
     "orientation": "natural"
 }
