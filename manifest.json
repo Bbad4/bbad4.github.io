@@ -1,17 +1,20 @@
 {
     "name": "Pratik Wadkar",
-    "short_name": "Pratik Wadkar",
-    "description": "Github Page as a Progressive Web App",
-    "scope": "/Minimal-Resume/",
-    "start_url": "/Minimal-Resume/",
-    "theme_color": "#FF0000",
-    "background_color": "#0000FF",
-    "display": "standalone", 
+    "short_name": "Pratik",
+    "description": "Pratik Wadkar Minimal Resume",
     "icons": [
         {
-        "src": "/Minimal-Resume/favicon_light.png",
-        "type": "image/png",
-        "sizes": "231x231"
+            "src": "assets/logo_light_192.png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "assets/logo_light_512.png",
+            "sizes": "512x512"
         }
-    ]
+    ],
+    "start_url": "/Minimal-Resume/",
+    "display": "standalone",
+    "background_color": "rgb(32,32,32)",
+    "prefer_related_applications": false,
+    "orientation": "natural"
 }
