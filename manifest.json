@@ -12,7 +12,7 @@
             "sizes": "512x512"
         }
     ],
-    "start_url": "/Minimal-Resume/",
+    "start_url": "/",
     "display": "standalone",
     "background_color": "#202020",
     "prefer_related_applications": false,
