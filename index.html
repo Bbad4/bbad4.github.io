@@ -16,7 +16,10 @@
     <link rel="icon" href="assets/logo_light_192.png" media="(prefers-color-scheme: light)">
     <link rel="icon" href="assets/logo_dark_192.png" media="(prefers-color-scheme: dark)">
     <link rel="manifest" href="manifest.json">
-    <script>navigator.serviceWorker?.register("service-worker.js")</script>
+    <script>
+        navigator.serviceWorker?.register("service-worker.js")
+        document.addEventListener("click", event => event.target.closest("button") && navigator.vibrate?.(10))
+    </script>
 </head>
 
 <body>
