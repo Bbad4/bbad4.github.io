@@ -7,10 +7,6 @@ const analyticsObj = analytics.getAnalytics(appObj)
 const authObj = auth.getAuth(appObj)
 const messagingObj = messaging.getMessaging(appObj)
 
-const toggleFab = () => document.querySelector('.fab').classList.toggle('expanded', scrollY < 50);
-addEventListener('scroll', toggleFab);
-toggleFab();
-
 
 //vibrate
 document.addEventListener('click', (event) => event.target.closest('button') && navigator.vibrate(10))
