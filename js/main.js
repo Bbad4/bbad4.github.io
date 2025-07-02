@@ -6,7 +6,7 @@ const analyticsObj = analytics.getAnalytics(appObj)
 const authObj = auth.getAuth(appObj)
 const messagingObj = messaging.getMessaging(appObj)
 
-const buttonFab = document.querySelector('#button_fab')
+const buttonFab = document.querySelector('#button_menu')
 const buttonsignIn = document.querySelector('#button_sign_in')
 const buttonDownloadApp = document.querySelector('#button_download_app')
 
