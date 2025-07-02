@@ -17,7 +17,13 @@
     "screenshots": [
         {
             "src": "assets/logo_light_512.png",
-            "sizes": "512x512"
+            "sizes": "512x512",
+            "form_factor": "wide"
+        },
+        {
+            "src": "assets/logo_dark_512.png",
+            "sizes": "512x512",
+            "form_factor": "wide"
         }
     ],
     "background_color": "#202020",
