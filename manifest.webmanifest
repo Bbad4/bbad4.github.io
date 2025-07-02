@@ -5,15 +5,11 @@
     "icons": [
         {
             "src": "assets/logo_light_192.png",
-            "sizes": "192x192",
-            "purpose": "any",
-            "type": "image/png"
+            "sizes": "192x192"
         },
         {
             "src": "assets/logo_light_512.png",
-            "sizes": "512x512",
-            "purpose": "any",
-            "type": "image/png"
+            "sizes": "512x512"
         }
     ],
     "start_url": "/",
@@ -21,13 +17,7 @@
     "screenshots": [
         {
             "src": "assets/logo_light_512.png",
-            "sizes": "512x512",
-            "type": "image/png"
-        },
-        {
-            "src": "assets/logo_dark_512.png",
-            "sizes": "512x512",
-            "type": "image/png"
+            "sizes": "512x512"
         }
     ],
     "background_color": "#202020",
