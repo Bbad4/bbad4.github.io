@@ -4,7 +4,6 @@ import * as auth from 'https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.j
 import * as messaging from 'https://www.gstatic.com/firebasejs/11.9.1/firebase-messaging.js'
 import * as messagingSw from 'https://www.gstatic.com/firebasejs/11.9.1/firebase-messaging-sw.js'
 
-
 const firebaseConfig = {
     apiKey: 'AIzaSyCczPZXMW4bRfrbtqUqGJdBdQlRvP5Neqc',
     authDomain: 'bbad-463819.firebaseapp.com',
@@ -17,8 +16,6 @@ const firebaseConfig = {
 const appObj = app.initializeApp(firebaseConfig)
 const packageName = 'io.github.bbad4.twa'
 const vapidKey = 'BGSRWDIlB3_gYexkKxU2TaTcHiq5WKgR_85gkmvGtKki8zXe4RZyCCa6aluWGjr0UlYbTMB9zkM8oC4Qbdxpp-o'
-const logo = 'assets/logo_dark_192.png'
-
 
 export { app, analytics, auth, messaging, messagingSw }
-export { appObj, packageName, vapidKey, logo }
+export { appObj, packageName, vapidKey }
