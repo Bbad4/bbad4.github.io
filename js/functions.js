@@ -1,6 +1,17 @@
 import { app, analytics, auth, messaging, messagingSw } from './firebase.js'
 
 
+function toggleFabText(authObj, buttonFab) {
+    const isExpanded = scrollY < 200
+    const hasClass = buttonFab.classList.contains('expanded')
+    if (isExpanded !== hasClass || !buttonFab.textContent) {
+        const userName = authObj.currentUser?.email.split('@')[0]
+        buttonFab.classList.toggle('expanded', isExpanded)
+        buttonFab.textContent = isExpanded ? `Hi ${userName || 'there'}` : 'Menu'
+    }
+}
+
+
 async function sendSignInLinkToEmail(authObj, packageName) {
     try {
         const email = prompt('enter email')
@@ -52,11 +63,23 @@ async function getToken(messagingObj, vapidKey) {
 }
 
 
-function parsePayload(payload, logo) {
+async function signOut(authObj) {
+    try {
+        await auth.signOut(authObj)
+        alert(`signOut 🟢`)
+    } 
+    catch (error) {
+        alert(`signOut 🔴 ${error.message}`)
+    }
+}
+
+
+function parsePayload(payload) {
     const title = payload.notification?.title || 'New Notification'
     const options = {
+        icon: payload.notification?.icon || 'assets/logo_dark_192.png',
         body: payload.notification?.body || 'Hi there!',
-        image: payload.notification?.image || logo,
+        image: payload.notification?.image || null,
         data: payload.data || {}
     }
     console.log(`parsePayload 🟢 ${title} 🟢 ${options}`)
@@ -65,4 +88,4 @@ function parsePayload(payload, logo) {
 }
 
 
-export { sendSignInLinkToEmail, signInWithEmailLink, getToken, parsePayload }
+export {toggleFabText, sendSignInLinkToEmail, signInWithEmailLink, getToken, parsePayload, signOut }

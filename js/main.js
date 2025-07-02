@@ -1,27 +1,35 @@
 import { app, analytics, auth, messaging, messagingSw } from './firebase.js'
-import { appObj, packageName, vapidKey, logo } from './firebase.js'
-import { sendSignInLinkToEmail, signInWithEmailLink, getToken, parsePayload } from './functions.js'
-
+import { appObj, packageName, vapidKey } from './firebase.js'
+import {toggleFabText, sendSignInLinkToEmail, signInWithEmailLink, getToken, signOut, parsePayload } from './functions.js'
 
 const analyticsObj = analytics.getAnalytics(appObj)
 const authObj = auth.getAuth(appObj)
 const messagingObj = messaging.getMessaging(appObj)
 
+const buttonFab = document.querySelector('#button_fab')
+const buttonsignIn = document.querySelector('#button_sign_in')
+const buttonDownloadApp = document.querySelector('#button_download_app')
+
 
 //vibrate
-document.addEventListener('click', (event) => event.target.closest('button') && navigator.vibrate(10))
+document.addEventListener('click', (e) => e.target.closest('button') && navigator.vibrate?.(10))
 
 
-//sendSignInLinkToEmail
-document.getElementById('email_login').addEventListener('click', async () => {
-    await sendSignInLinkToEmail(authObj, packageName)
+//toggleFabText
+document.addEventListener('scroll', () => toggleFabText(authObj, buttonFab))
+
+
+//onAuthStateChanged
+auth.onAuthStateChanged(authObj, () => {
+    toggleFabText(authObj, buttonFab)
+
+    buttonsignIn.textContent = authObj.currentUser ? 'Sign Out' : 'Sign In'
+    buttonsignIn.onclick = async () => authObj.currentUser ? await signOut(authObj) : await sendSignInLinkToEmail(authObj, packageName)
 })
 
 
 //signInWithEmailLink
-if (await auth.isSignInWithEmailLink(authObj, location.href)) {
-    await signInWithEmailLink(authObj)
-}
+await auth.isSignInWithEmailLink(authObj, location.href) && await signInWithEmailLink(authObj)
 
 
 //getToken
@@ -30,24 +38,23 @@ if (await Notification.requestPermission() === 'granted') {
 }
 
 
-//onMessage
-messaging.onMessage(messagingObj, (payload) => {
-    const { title, options } = parsePayload(payload, logo)
-    new Notification(title, options)
+//buttonDownloadApp
+window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault()
+    buttonDownloadApp.hidden = false
+    buttonDownloadApp.onclick = async () => {
+        try {
+            e.prompt()
+        }
+        catch (error) {
+            console.log(`pwa not supported`)
+        }
+    }
 })
 
 
-
-
-
-
-//onAuthStateChanged
-async function f0(usercreds) {
-  if (usercreds) {
-    document.querySelector('.button_fab').style.backgroundColor = "green";
-  } else {
-    document.querySelector('.button_fab').style.backgroundColor = "red";
-  }
-}
-
-auth.onAuthStateChanged(authObj, f0);
+//onMessage
+messaging.onMessage(messagingObj, (payload) => {
+    const { title, options } = parsePayload(payload)
+    new Notification(title, options)
+})
