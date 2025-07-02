@@ -1,17 +1,6 @@
 import { app, analytics, auth, messaging, messagingSw } from './firebase.js'
 
 
-function toggleFabText(authObj, buttonFab) {
-    const isExpanded = scrollY < 200
-    const hasClass = buttonFab.classList.contains('expanded')
-    if (isExpanded !== hasClass || !buttonFab.textContent) {
-        const userName = authObj.currentUser?.email.split('@')[0]
-        buttonFab.classList.toggle('expanded', isExpanded)
-        buttonFab.textContent = isExpanded ? `Hi ${userName || 'there'}` : 'Menu'
-    }
-}
-
-
 async function sendSignInLinkToEmail(authObj, packageName) {
     try {
         const email = prompt('enter email')
@@ -88,4 +77,4 @@ function parsePayload(payload) {
 }
 
 
-export {toggleFabText, sendSignInLinkToEmail, signInWithEmailLink, getToken, parsePayload, signOut }
+export { sendSignInLinkToEmail, signInWithEmailLink, getToken, parsePayload, signOut }

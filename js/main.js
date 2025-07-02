@@ -1,27 +1,40 @@
 import { app, analytics, auth, messaging, messagingSw } from './firebase.js'
 import { appObj, packageName, vapidKey } from './firebase.js'
-import {toggleFabText, sendSignInLinkToEmail, signInWithEmailLink, getToken, signOut, parsePayload } from './functions.js'
+import { sendSignInLinkToEmail, signInWithEmailLink, getToken, signOut, parsePayload } from './functions.js'
 
 const analyticsObj = analytics.getAnalytics(appObj)
 const authObj = auth.getAuth(appObj)
 const messagingObj = messaging.getMessaging(appObj)
 
 const buttonFab = document.querySelector('#button_fab')
-const buttonsignIn = document.querySelector('#button_sign_in')
 const buttonDownloadApp = document.querySelector('#button_download_app')
+const buttonsignIn = document.querySelector('#button_sign_in')
+
+
+//buttonDownloadApp
+window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault()
+    buttonDownloadApp.hidden = false
+    buttonDownloadApp.onclick = async () => {
+        try {
+            e.prompt()
+            const { outcome } = await e.userChoice
+            console.log(`User choice: ${outcome}`)
+        }
+        catch (error) {
+            console.log(`pwa not supported`)
+        }
+    }
+})
 
 
 //vibrate
-document.addEventListener('click', (e) => e.target.closest('button') && navigator.vibrate?.(10))
-
-
-//toggleFabText
-document.addEventListener('scroll', () => toggleFabText(authObj, buttonFab))
+document.addEventListener('click', (e) => e.target.closest('button') && navigator.vibrate?.(20))
 
 
 //onAuthStateChanged
 auth.onAuthStateChanged(authObj, () => {
-    toggleFabText(authObj, buttonFab)
+    buttonFab.textContent = `Hi ${authObj.currentUser?.email.split('@')[0] || 'there'}` 
 
     buttonsignIn.textContent = authObj.currentUser ? 'Sign Out' : 'Sign In'
     buttonsignIn.onclick = async () => authObj.currentUser ? await signOut(authObj) : await sendSignInLinkToEmail(authObj, packageName)
@@ -36,21 +49,6 @@ await auth.isSignInWithEmailLink(authObj, location.href) && await signInWithEmai
 if (await Notification.requestPermission() === 'granted') {
     await getToken(messagingObj, vapidKey)
 }
-
-
-//buttonDownloadApp
-window.addEventListener('beforeinstallprompt', (e) => {
-    e.preventDefault()
-    buttonDownloadApp.hidden = false
-    buttonDownloadApp.onclick = async () => {
-        try {
-            e.prompt()
-        }
-        catch (error) {
-            console.log(`pwa not supported`)
-        }
-    }
-})
 
 
 //onMessage
