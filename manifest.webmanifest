@@ -4,11 +4,11 @@
     "description": "Pratik Wadkar Minimal Resume",
     "icons": [
         {
-            "src": "assets/logo_light_192.png",
+            "src": "assets/logo_light_mobile.png",
             "sizes": "192x192"
         },
         {
-            "src": "assets/logo_light_512.png",
+            "src": "assets/logo_light_desktop.png",
             "sizes": "512x512"
         }
     ],
@@ -16,13 +16,21 @@
     "display": "standalone",
     "screenshots": [
         {
-            "src": "assets/logo_light_512.png",
-            "sizes": "512x512",
+            "src": "assets/screenshot_light_mobile.png",
+            "sizes": "491x1065"
+        },
+        {
+            "src": "assets/screenshot_light_desktop.png",
+            "sizes": "1600x1040",
             "form_factor": "wide"
         },
         {
-            "src": "assets/logo_dark_512.png",
-            "sizes": "512x512",
+            "src": "assets/screenshot_dark_mobile.png",
+            "sizes": "491x1065"
+        },
+        {
+            "src": "assets/screenshot_dark_desktop.png",
+            "sizes": "1600x1040",
             "form_factor": "wide"
         }
     ],

@@ -66,7 +66,7 @@ async function signOut(authObj) {
 function parsePayload(payload) {
     const title = payload.notification?.title || 'New Notification'
     const options = {
-        icon: payload.notification?.icon || 'assets/logo_dark_192.png',
+        icon: payload.notification?.icon || 'assets/logo_light_mobile.png',
         body: payload.notification?.body || 'Hi there!',
         image: payload.notification?.image || null,
         data: payload.data || {}
