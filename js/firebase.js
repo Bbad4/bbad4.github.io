@@ -14,8 +14,7 @@ const firebaseConfig = {
     measurementId: 'G-P7GB57L7FF'
 }
 const appObj = app.initializeApp(firebaseConfig)
-const packageName = 'io.github.bbad4.twa'
-const vapidKey = 'BGSRWDIlB3_gYexkKxU2TaTcHiq5WKgR_85gkmvGtKki8zXe4RZyCCa6aluWGjr0UlYbTMB9zkM8oC4Qbdxpp-o'
 
-export { app, analytics, auth, messaging, messagingSw }
-export { appObj, packageName, vapidKey }
+
+//
+export { app, analytics, auth, messaging, messagingSw, appObj }
