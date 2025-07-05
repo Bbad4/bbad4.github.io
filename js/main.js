@@ -1,7 +1,7 @@
 import './firebase.js'
 import './auth.js'
-import './notifications.js'
-import './download_app.js'
+import './subscription.js'
+import './install.js'
 import { app, analytics, auth, messaging, messagingSw, appObj } from './firebase.js'
 
 

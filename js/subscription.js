@@ -3,7 +3,7 @@ import { app, analytics, auth, messaging, messagingSw, appObj } from './firebase
 const messagingObj = messaging.getMessaging(appObj)
 const vapidKey = 'BGSRWDIlB3_gYexkKxU2TaTcHiq5WKgR_85gkmvGtKki8zXe4RZyCCa6aluWGjr0UlYbTMB9zkM8oC4Qbdxpp-o'
 const itemKey = 'notificationsDenied'
-const buttonNotifications = document.querySelector('#button_notifications')
+const buttonSubscription = document.querySelector('#button_subscription')
 let isFullyGranted
 
 
@@ -15,10 +15,10 @@ const getToken = async () => {
             serviceWorkerRegistration: await navigator.serviceWorker.getRegistration()
         }
         const token = await messaging.getToken(messagingObj, tokenOptions)
-        console.log(`getToken 🟢 ${token}`)
+        console.log(`Got Token 🟢 ${token}`)
     } 
     catch (error) {
-        console.log(`getToken 🔴 ${error.message}`)
+        console.log(`Not Got Token 🔴 ${error.message}`)
     }
 }
 
@@ -26,7 +26,7 @@ const getToken = async () => {
 //
 const notificationsState = async () => {
     isFullyGranted = Notification.permission === 'granted' && !localStorage.getItem(itemKey)
-    buttonNotifications.textContent = isFullyGranted ? 'Disable Notifications 🔴' : 'Enable Notifications 🟢'
+    buttonSubscription.textContent = isFullyGranted ? 'UnSubscribe 🔴' : 'Subscribe 🟢'
     if (isFullyGranted) await getToken()
 }
 
@@ -34,18 +34,18 @@ await notificationsState()
 
 
 //
-buttonNotifications.onclick = async () => {
+buttonSubscription.onclick = async () => {
     if (isFullyGranted) {
         await messaging.deleteToken(messagingObj)
         localStorage.setItem(itemKey, '1')
-        alert(`notifications 🔴`)
+        alert(`UnSubscribed 🔴`)
     }
     else if (Notification.permission === 'granted' || await Notification.requestPermission() === 'granted') {
         localStorage.removeItem(itemKey)
-        alert(`notifications 🟢`)
+        alert(`Subscribed 🟢`)
     }
     else if (Notification.permission === 'denied') {
-        alert(`notification permissions denied 🔴`)
+        alert(`Notification Permission Denied 🔴`)
     }
 
     await notificationsState()
@@ -61,7 +61,7 @@ const parsePayload = (payload) => {
         image: payload.notification?.image,
         data: payload.data
     }
-    console.log(`parsePayload 🟢 ${title} 🟢 ${JSON.stringify(options)}`)
+    console.log(`Parsed Payload 🟢 ${title} 🟢 ${JSON.stringify(options)}`)
 
     return { title, options }
 }
