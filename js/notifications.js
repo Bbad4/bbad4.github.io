@@ -26,7 +26,7 @@ const getToken = async () => {
 //
 const notificationsState = async () => {
     isFullyGranted = Notification.permission === 'granted' && !localStorage.getItem(itemKey)
-    buttonNotifications.textContent = isFullyGranted ? 'Disable Notifications 🔴' : 'Enable Notifications 🟢'
+    buttonNotifications.textContent = isFullyGranted ? 'UnSubscribe 🔴' : 'Subscribe 🟢'
     if (isFullyGranted) await getToken()
 }
 
@@ -38,14 +38,14 @@ buttonNotifications.onclick = async () => {
     if (isFullyGranted) {
         await messaging.deleteToken(messagingObj)
         localStorage.setItem(itemKey, '1')
-        alert(`notifications 🔴`)
+        alert(`UnSubscribed 🔴`)
     }
     else if (Notification.permission === 'granted' || await Notification.requestPermission() === 'granted') {
         localStorage.removeItem(itemKey)
-        alert(`notifications 🟢`)
+        alert(`Subscribed 🟢`)
     }
     else if (Notification.permission === 'denied') {
-        alert(`notification permissions denied 🔴`)
+        alert(`notification permission denied 🔴`)
     }
 
     await notificationsState()
