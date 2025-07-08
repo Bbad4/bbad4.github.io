@@ -14,4 +14,4 @@ analytics.getAnalytics(appObj)
 
 
 //
-document.addEventListener('click', (event) => event.target.closest('button') && navigator.vibrate?.(20))
+document.addEventListener('click', (event) => event.target.closest('button') && navigator.vibrate?.(15))
