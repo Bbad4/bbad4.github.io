@@ -190,7 +190,7 @@ body {
 
 .container_fab {
     > .grid_fab {
-        bottom: 2.3rem;
+        bottom: 1.2rem;
         display: grid;
         gap: 0.8rem;
         place-items: end;
@@ -202,7 +202,8 @@ body {
     }
     &:hover .grid_fab {
         opacity: 1;
-        transform: translateY(-2.3rem);
+        padding-bottom: 0.8rem;
+        transform: translateY(-2.7rem);
         visibility: visible;
     }
 }
