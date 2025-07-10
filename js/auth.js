@@ -17,10 +17,10 @@ const sendSignInLinkToEmail = async () => {
         }
         await auth.sendSignInLinkToEmail(authObj, email, actionCodeSettings)
         localStorage.setItem(itemKey, email)
-        alert(`Sign In link sent 🟢 ${email}`)
+        alert(`Sign-In link sent 🟢 ${email}`)
     }
     catch (error) {
-        alert(`Sign In link not sent 🔴 ${error.message}`)
+        alert(`Sign-In link not sent 🔴 ${error.message}`)
     }
 }
 
@@ -32,11 +32,11 @@ const signInWithEmailLink = async () => {
         await auth.signInWithEmailLink(authObj, email, location.href)
         localStorage.removeItem(itemKey)
         location.href = '/'
-        alert(`Signed In 🟢 ${email}`)
+        alert(`Signed-In 🟢 ${email}`)
     }
     catch (error) {
         location.href = '/'
-        alert(`Not Signed In 🔴 ${error.message}`)
+        alert(`Not Signed-In 🔴 ${error.message}`)
     }
 }
 
@@ -45,10 +45,10 @@ const signInWithEmailLink = async () => {
 const signOut = async () => {
     try {
         await auth.signOut(authObj)
-        alert(`Signed Out 🟢`)
+        alert(`Signed-Out 🟢`)
     } 
     catch (error) {
-        alert(`Not Signed Out 🔴 ${error.message}`)
+        alert(`Not Signed-Out 🔴 ${error.message}`)
     }
 }
 
