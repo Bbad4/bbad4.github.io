@@ -193,8 +193,9 @@ body {
         bottom: 1.2rem;
         display: grid;
         gap: 0.8rem;
-        place-items: end;
         opacity: 0;
+        padding-bottom: 0.8rem;
+        place-items: end;
         position: fixed;
         right: 1.2rem;
         transition: 0.2s ease;
@@ -202,7 +203,6 @@ body {
     }
     &:hover .grid_fab {
         opacity: 1;
-        padding-bottom: 0.8rem;
         transform: translateY(-2.7rem);
         visibility: visible;
     }
