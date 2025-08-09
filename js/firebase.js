@@ -1,8 +1,8 @@
-import * as app from 'https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js'
-import * as analytics from 'https://www.gstatic.com/firebasejs/12.0.0/firebase-analytics.js'
-import * as auth from 'https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js'
-import * as messaging from 'https://www.gstatic.com/firebasejs/12.0.0/firebase-messaging.js'
-import * as messagingSw from 'https://www.gstatic.com/firebasejs/12.0.0/firebase-messaging-sw.js'
+import * as app from 'https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js'
+import * as analytics from 'https://www.gstatic.com/firebasejs/12.1.0/firebase-analytics.js'
+import * as auth from 'https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js'
+import * as messaging from 'https://www.gstatic.com/firebasejs/12.1.0/firebase-messaging.js'
+import * as messagingSw from 'https://www.gstatic.com/firebasejs/12.1.0/firebase-messaging-sw.js'
 
 const firebaseConfig = {
     apiKey: 'AIzaSyCczPZXMW4bRfrbtqUqGJdBdQlRvP5Neqc',
