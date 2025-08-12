@@ -14,7 +14,7 @@ analytics.getAnalytics(appObj)
 
 
 //
-document.addEventListener('click', (event) => {
+document.addEventListener('pointerdown', (event) => {
     if (event.target.closest('body > * > *') && !event.target.closest('.grid_intro > :nth-child(2)')) {
         navigator.vibrate?.(10)
     }
