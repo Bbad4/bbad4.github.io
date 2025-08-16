@@ -2,7 +2,6 @@ import { app, analytics, auth, messaging, messagingSw, appObj } from './firebase
 
 const authObj = auth.getAuth(appObj)
 const itemKey = 'userEmail'
-const buttonFab = document.querySelector('#button_fab')
 const buttonAuth = document.querySelector('#button_auth')
 
 
@@ -55,9 +54,7 @@ const signOut = async () => {
 
 //
 auth.onAuthStateChanged(authObj, (currentUser) => {
-    buttonFab.textContent = `Hi ${currentUser?.email.split('@')[0] || 'there'}` 
-
-    buttonAuth.textContent = currentUser ? 'Sign Out 🔴' : 'Sign In 🟢'
+    buttonAuth.textContent = currentUser ? `Hi ${currentUser.email.split('@', 1)}, Sign Out 🔴` : 'Sign In 🟢'
     buttonAuth.onclick = async () => currentUser ? await signOut() : await sendSignInLinkToEmail()
 })
 

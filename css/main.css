@@ -11,7 +11,6 @@ html {
     --shadow-color-2: #eaeaea;
     --button-background-color: #b5cec9;
     --button-color: #075a4b;
-
     @media (prefers-color-scheme: dark) {
         --background-color: #202020;
         --color: #b6b6b6;
@@ -60,7 +59,7 @@ body {
         gap: 0.8rem;
         grid-auto-rows: min-content;
         padding: 1.2rem;
-        transition: 0.2s ease;
+        transition: 0.2s;
         @media (pointer: fine) {
             &:hover {
                 transform: translateY(-0.2rem);
@@ -122,7 +121,6 @@ body {
     > :nth-child(1) {
         grid-column: 1/-1;
     }
-
 }
 
 
@@ -130,7 +128,7 @@ body {
     border-radius: 2em;
     font-weight: 450;
     padding: 0.6em 1.1em;
-    transition: 0.2s ease;
+    transition: 0.2s;
     @media (pointer: fine) {
         &:hover {
             transform: translateY(-0.2em);
@@ -161,7 +159,7 @@ body {
     cursor: pointer;
     font-weight: 550;
     padding: 0.5em 1em;
-    transition: 0.2s ease;
+    transition: 0.2s;
     @media (pointer: fine) {
         &:hover {
             background-color: var(--background-color);
@@ -184,8 +182,10 @@ body {
     font-size: 0.9rem;
 }
 .button_fab {
+    border-radius: 50%;
     bottom: 1.2rem;
-    font-size: 1.2rem;
+    line-height: 0;
+    padding: 0.4rem;
     position: fixed;
     right: 1.2rem;
 }
@@ -193,20 +193,31 @@ body {
 
 .container_fab {
     > .grid_fab {
-        bottom: 1.2rem;
+        bottom: 4.2rem;
         display: grid;
         gap: 0.8rem;
         opacity: 0;
         padding-bottom: 0.8rem;
         place-items: end;
+        pointer-events: none;
         position: fixed;
         right: 1.2rem;
-        transition: 0.2s ease;
+        transition: 0.2s;
         visibility: hidden;
     }
-    &:hover .grid_fab {
-        opacity: 1;
-        transform: translateY(-2.7rem);
-        visibility: visible;
+    & .material-symbols-outlined {
+        font-size: 3.2rem;
+        transition: 0.2s;
+    }
+    &:hover {
+        .grid_fab {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(-1.2rem);
+            visibility: visible;
+        }
+        .material-symbols-outlined {
+            transform: rotate(180deg);
+        }
     }
 }
