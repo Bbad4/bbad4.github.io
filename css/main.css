@@ -190,8 +190,15 @@ body {
     padding: 0.15em;
     position: fixed;
     right: 1.2rem;
-    &:hover {
-        transform: rotate(180deg);
+    @media (pointer: fine) {
+        &:hover {
+            transform: rotate(180deg);
+        }
+    }
+    @media (pointer: coarse) {
+        &:active {
+            transform: rotate(180deg);
+        }
     }
 }
 
