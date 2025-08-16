@@ -184,10 +184,15 @@ body {
     font-size: 0.9rem;
 }
 .button_fab {
+    border-radius: 50%;
     bottom: 1.2rem;
-    font-size: 1.2rem;
+    font-size: 3rem;
+    padding: 0.15em;
     position: fixed;
     right: 1.2rem;
+    &:hover {
+        transform: rotate(180deg);
+    }
 }
 
 
@@ -199,6 +204,7 @@ body {
         opacity: 0;
         padding-bottom: 0.8rem;
         place-items: end;
+        pointer-events: none;
         position: fixed;
         right: 1.2rem;
         transition: 0.2s ease;
@@ -206,7 +212,8 @@ body {
     }
     &:hover .grid_fab {
         opacity: 1;
-        transform: translateY(-2.7rem);
+        pointer-events: auto;
+        transform: translateY(-3.9rem);
         visibility: visible;
     }
 }
