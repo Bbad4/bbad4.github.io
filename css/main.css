@@ -47,7 +47,7 @@ body {
 }
 
 
-.grid_intro, .grid_experience, .grid_education, .grid_skills, .grid_capstone {
+.grid_intro, .grid_experience, .grid_education, .grid_skills, .grid_project {
     display: grid;
     font-size: 0.9rem;
     font-weight: 400;
@@ -110,7 +110,7 @@ body {
         }
     }
 }
-.grid_experience, .grid_capstone {
+.grid_experience, .grid_project {
     grid-template-columns: 1fr;
 }
 .grid_education, .grid_skills {
