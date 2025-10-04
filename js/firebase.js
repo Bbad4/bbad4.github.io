@@ -5,13 +5,13 @@ import * as messaging from 'https://www.gstatic.com/firebasejs/12.3.0/firebase-m
 import * as messagingSw from 'https://www.gstatic.com/firebasejs/12.3.0/firebase-messaging-sw.js'
 
 const firebaseConfig = {
-    apiKey: 'AIzaSyCczPZXMW4bRfrbtqUqGJdBdQlRvP5Neqc',
-    authDomain: 'bbad-463819.firebaseapp.com',
-    projectId: 'bbad-463819',
-    storageBucket: 'bbad-463819.firebasestorage.app',
-    messagingSenderId: '586175350146',
-    appId: '1:586175350146:web:a309dfc7e1b344a255bb9b',
-    measurementId: 'G-P7GB57L7FF'
+	apiKey: 'AIzaSyCczPZXMW4bRfrbtqUqGJdBdQlRvP5Neqc',
+	authDomain: 'bbad-463819.firebaseapp.com',
+	projectId: 'bbad-463819',
+	storageBucket: 'bbad-463819.firebasestorage.app',
+	messagingSenderId: '586175350146',
+	appId: '1:586175350146:web:a309dfc7e1b344a255bb9b',
+	measurementId: 'G-P7GB57L7FF'
 }
 const appObj = app.initializeApp(firebaseConfig)
 

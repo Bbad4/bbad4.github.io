@@ -15,7 +15,7 @@ analytics.getAnalytics(appObj)
 
 //
 document.addEventListener('click', (event) => {
-    if (event.target.closest('body > * > *') && !event.target.closest('.grid_intro > :nth-child(2)')) {
-        navigator.vibrate?.(5)
-    }
+	if (event.target.closest('body > * > *') && !event.target.closest('.grid_intro > :nth-child(2)')) {
+		navigator.vibrate?.(5)
+	}
 })
