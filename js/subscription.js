@@ -26,7 +26,7 @@ const getToken = async () => {
 //
 const notificationsState = async () => {
 	isFullyGranted = Notification.permission === 'granted' && !localStorage.getItem(itemKey)
-	buttonSubscription.textContent = isFullyGranted ? 'UnSubscribe 🔴' : 'Subscribe 🟢'
+	buttonSubscription.textContent = isFullyGranted ? '🔕 UnSubscribe' : '🔔 Subscribe'
 	if (isFullyGranted) await getToken()
 }
 

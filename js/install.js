@@ -7,7 +7,7 @@ const buttonInstall = document.querySelector('#button_install')
 window.addEventListener('beforeinstallprompt', (event) => {
 	event.preventDefault()
 	buttonInstall.hidden = false
-	buttonInstall.textContent = 'Install App'
+	buttonInstall.textContent = '📲 Install App'
 	buttonInstall.installPrompt = event
 })
 

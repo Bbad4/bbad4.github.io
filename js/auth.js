@@ -54,7 +54,7 @@ const signOut = async () => {
 
 //
 auth.onAuthStateChanged(authObj, (currentUser) => {
-	buttonAuth.textContent = currentUser ? `Hi ${currentUser.email.split('@', 1)}, Sign Out 🔴` : 'Sign In 🟢'
+	buttonAuth.textContent = currentUser ? `⬅️ Sign Out (${currentUser.email.split('@', 1)})` : '➡️ Sign In'
 	buttonAuth.onclick = async () => currentUser ? await signOut() : await sendSignInLinkToEmail()
 })
 
